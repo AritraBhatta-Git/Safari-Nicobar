@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Safari-Nicobar: Explore the Emerald Islands</title>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #fff;
+        line-height: 1.6;
+        overflow-x: hidden;
+        background: #000;
+    }
+
+    /* Background Image */
+    body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=100') center/cover no-repeat;
+        z-index: -2;
+        transform: scale(1.1);
+        animation: slowZoom 30s ease-in-out infinite alternate;
+    }
+
+    /* Animated Gradient Overlay */
+    body::after {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(45deg, rgba(0,255,200,0.4), rgba(255,0,150,0.4), rgba(0,150,255,0.4));
+        background-size: 400% 400%;
+        animation: gradientMove 15s ease infinite;
+        z-index: -1;
+    }
+
+    /* Container */
+    .container {
+        max-width: 960px;
+        margin: 40px auto;
+        padding: 30px;
+        background: rgba(0,0,0,0.55);
+        backdrop-filter: blur(10px);
+        border-radius: 12px;
+        box-shadow: 0 0 20px rgba(0,0,0,0.3);
+        animation: fadeIn 1.5s ease-out forwards;
+    }
+
+    h1 {
+        font-size: 2.8em;
+        text-align: center;
+        color: #ffdf6c;
+        animation: slideDown 1s ease-out forwards;
+    }
+    h2 {
+        color: #00ffcc;
+        font-size: 1.8em;
+        margin-top: 25px;
+        margin-bottom: 15px;
+        animation: fadeUp 1.2s ease-in-out forwards;
+    }
+    h3 {
+        color: #f6f6f6;
+        margin-bottom: 10px;
+    }
+    p {
+        color: #e8e8e8;
+        margin-bottom: 15px;
+    }
+    a {
+        color: #ffdf6c;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+    a:hover {
+        color: #ff9f1c;
+        text-shadow: 0 0 8px #ff9f1c;
+    }
+    img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 15px auto;
+        border-radius: 8px;
+        box-shadow: 0 0 15px rgba(255,255,255,0.3);
+        transition: transform 0.5s ease;
+    }
+    img:hover {
+        transform: scale(1.05);
+    }
+    ul {
+        list-style: none;
+        padding: 0;
+    }
+    li {
+        margin-bottom: 10px;
+        animation: fadeUp 1s ease forwards;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes slideDown {
+        from { opacity: 0; transform: translateY(-50px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeUp {
+        from { opacity: 0; transform: translateY(30px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes gradientMove {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+    @keyframes slowZoom {
+        0% { transform: scale(1.1); }
+        100% { transform: scale(1.15); }
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Safari-Nicobar </h1>
+    <p style="color: #ddd; font-style: italic;">Discover the captivating beauty and rich history of the Andaman & Nicobar Islands.</p>
+
+    <h2>Let's Take a Tour Around the Andaman & Nicobar Islands</h2>
+    <h3>Quick Highlights</h3>
+
+    <h2><a href="https://southandaman.nic.in/history/">Historical Background of Andaman</a></h2>
+    <p>The history of the Andaman and Nicobar Islands stretches back to the Ramayana period...</p>
+    <p>A significant turning point occurred in the 17th century...</p>
+    <p>The first formal colony was established on Chatham Island...</p>
+
+    <h2>Click on the image for further Tourism Details</h2>
+    <a href="https://southandaman.nic.in/tourism/">
+        <img src="https://cdn.s3waas.gov.in/s3352fe25daf686bdb4edca223c921acea/uploads/2018/04/2018041857.png" alt="Andaman Tourism">
+    </a>
+
+    <hr style="border-color: rgba(255,255,255,0.3);">
+
+    <div class="table-of-contents">
+        <h2>Exciting Facts</h2>
+        <ul> 
+            
+            <li><a href="./flora and fauna.html">Flora and Fauna Biodiversity</a></li>
+            <li><a href="https://www.britannica.com/place/Andaman-and-Nicobar-Islands#ref278483">Land</a></li>
+            <li><a href="https://www.britannica.com/place/Andaman-and-Nicobar-Islands/People">People</a></li>
+            <li><a href="#">Beaches and Islands (Coming Soon)</a></li>
+            <li><a href="#">Culture and Heritage (Coming Soon)</a></li>
+        </ul>
+    </div>
+</div>
+
+</body>
+</html>

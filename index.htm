@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Safari - Nicobars Login</title>
+<style>
+/* Reset and base styling */
+* {margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;}
+body, html {height:100%;overflow:hidden;}
+
+/* Animated gradient background */
+body {
+    background: linear-gradient(270deg, #ff9a9e, #fad0c4, #fbc2eb, #a1c4fd, #c2e9fb);
+    background-size: 1500% 1500%;
+    animation: gradientBG 20s ease infinite;
+    display: flex;align-items: center;justify-content: center;
+}
+@keyframes gradientBG {
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+/* Particle canvas behind login */
+#particles {
+    position: fixed;top:0;left:0;width:100%;height:100%;
+    z-index: 0;
+}
+
+/* Floating text animation */
+.floating-title {
+    position:absolute;
+    top:10%;left:50%;transform:translateX(-50%);
+    font-size: 2.5rem;
+    font-weight:bold;
+    color: white;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.4);
+    animation: floatTitle 4s ease-in-out infinite;
+    z-index: 1;
+}
+@keyframes floatTitle {
+    0%,100%{transform:translate(-50%,0);}
+    50%{transform:translate(-50%,-15px);}
+}
+
+/* Login box with glass effect */
+.login-box {
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(10px);
+    padding: 25px;
+    border-radius: 15px;
+    width: 300px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    z-index: 2;
+    text-align:center;
+    animation: fadeIn 1.5s ease;
+}
+@keyframes fadeIn {
+    from{opacity:0;transform:translateY(20px);}
+    to{opacity:1;transform:translateY(0);}
+}
+
+.login-box h2 {
+    color: #fff;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+label {
+    display:block;
+    text-align:left;
+    margin:8px 0 5px;
+    color: #fff;
+    font-size: 0.9rem;
+}
+
+input {
+    width:100%;
+    padding:10px;
+    border:none;
+    border-radius:5px;
+    margin-bottom:15px;
+    font-size:1rem;
+}
+
+button {
+    width:100%;
+    padding:10px;
+    border:none;
+    border-radius:5px;
+    background: #4cafef;
+    color:white;
+    font-size:1rem;
+    cursor:pointer;
+    transition:0.3s;
+}
+button:hover {
+    background:#3b8dd1;
+}
+
+/* Floating fireflies */
+.firefly {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: yellow;
+    border-radius: 50%;
+    animation: fly 10s infinite;
+    opacity: 0.8;
+}
+@keyframes fly {
+    0% {transform: translate(0,0);}
+    50% {transform: translate(100px,-150px);}
+    100% {transform: translate(-50px,100px);}
+}
+</style>
+</head>
+<body>
+
+<canvas id="particles"></canvas>
+
+<div class="floating-title">🌴Aritra Presents Safari - Nicobars 🌊</div>
+
+<div class="login-box">
+    <h2>Login to Continue</h2>
+    <form>
+        <label for="username">Username</label>
+        <input type="text" id="username" placeholder="Enter your username" required>
+        
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Enter your password" required>
+        
+        <button type="submit" onclick="location.href='./welcome.html'"> <a href="./welcome.html"> Login </a></button>
+    </form>
+</div>
+
+<!-- Fireflies -->
+<div class="firefly" style="top:20%;left:30%;animation-delay:0s;"></div>
+<div class="firefly" style="top:50%;left:70%;animation-delay:3s;"></div>
+<div class="firefly" style="top:80%;left:40%;animation-delay:6s;"></div>
+
+<script>
+// Simple particle animation
+const canvas = document.getElementById('particles');
+const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let particles = [];
+for(let i=0;i<50;i++){
+    particles.push({
+        x: Math.random()*canvas.width,
+        y: Math.random()*canvas.height,
+        r: Math.random()*3+1,
+        dx: (Math.random()-0.5)*1.5,
+        dy: (Math.random()-0.5)*1.5
+    });
+}
+
+function drawParticles(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    ctx.fillStyle = 'rgba(255,255,255,0.8)';
+    particles.forEach(p=>{
+        ctx.beginPath();
+        ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+        ctx.fill();
+        p.x += p.dx;
+        p.y += p.dy;
+        if(p.x<0||p.x>canvas.width) p.dx*=-1;
+        if(p.y<0||p.y>canvas.height) p.dy*=-1;
+    });
+    requestAnimationFrame(drawParticles);
+}
+drawParticles();
+
+window.addEventListener('resize',()=>{
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+});
+</script>
+
+</body>
+</html>
